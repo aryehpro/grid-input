@@ -1,0 +1,17 @@
+<div>
+    <form class="gi-form" name="userForm">
+        <div>
+            <md-input-container class="md-block" ng-repeat="field in fields">
+                <label>{{field | capitalize}}</label>
+                <input ng-model="newChip[field]" ng-keyup="$last && $event.keyCode == 13 && addNewChip()">
+            </md-input-container>
+        </div>
+    </form>
+
+    <md-chips class="gi-chips" ng-model="values">
+        <input disabled/>
+        <md-chip-template>
+            <div class="chip-val" ng-repeat="(key, value) in $chip">{{value}}</div>
+        </md-chip-template>
+    </md-chips>
+</div>

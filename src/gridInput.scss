@@ -1,0 +1,114 @@
+.gi-form {
+  div {
+
+    display: -webkit-flex;
+    display: flex;
+
+    .md-input-container, md-input-container {
+      display: inline-block;
+      float: left;
+      flex: 1;
+      margin: 0;
+      padding: 0;
+      border-right: solid 1px black;
+
+      .md-input {
+        border: none;
+      }
+
+      .md-errors-spacer {
+        display: none;
+      }
+    }
+  }
+}
+
+md-chips.gi-chips {
+
+  .md-chips {
+
+    md-chips-wrap.md-focused {
+      box-shadow: none;
+    }
+
+    box-shadow: none;
+    cursor: default;
+    padding: 0;
+
+    input {
+      display: none;
+    }
+
+    .md-focused {
+      box-shadow: none;
+      background-color: rgb(224, 224, 224);
+      color: rgb(66, 66, 66);
+
+      md-icon {
+        color: rgba(0, 0, 0, 0.54);
+      }
+    }
+
+    md-chip.ng-scope.md-chip {
+
+      border-radius: 0;
+      clear: left;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border-top: solid 1px black;
+      border-left: solid 1px black;
+      border-right: solid 1px black;
+
+      .md-focused {
+        box-shadow: none;
+        background-color: rgb(224, 224, 224);
+        color: rgb(66, 66, 66);
+
+      }
+
+      .md-chip-content, md-chip-template {
+        width: 100%;
+        display: -webkit-flex;
+        display: flex;
+      }
+
+      .chip-val {
+        border-right: solid 1px darkblue;
+        display: inline-block;
+        width: auto;
+        flex: 1;
+      }
+
+      .chip-val:after {
+        content: '.';
+        visibility: hidden;
+      }
+
+      .md-chip-remove-container {
+
+        position: absolute;
+        right: 0;
+        display: block;
+        z-index: 1;
+
+        .md-chip-remove {
+          cursor: pointer;
+
+          md-icon {
+            cursor: pointer;
+          }
+        }
+      }
+
+    }
+
+    md-chip:nth-child(even) {
+      background-color: transparent;
+    }
+
+    md-chip:last-of-type {
+      border-bottom: solid 1px black;
+    }
+  }
+}

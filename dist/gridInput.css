@@ -1,0 +1,69 @@
+.gi-form div {
+  display: -webkit-flex;
+  display: flex; }
+  .gi-form div .md-input-container, .gi-form div md-input-container {
+    display: inline-block;
+    float: left;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    border-right: solid 1px black; }
+    .gi-form div .md-input-container .md-input, .gi-form div md-input-container .md-input {
+      border: none; }
+    .gi-form div .md-input-container .md-errors-spacer, .gi-form div md-input-container .md-errors-spacer {
+      display: none; }
+
+md-chips.gi-chips .md-chips {
+  box-shadow: none;
+  cursor: default;
+  padding: 0; }
+  md-chips.gi-chips .md-chips md-chips-wrap.md-focused {
+    box-shadow: none; }
+  md-chips.gi-chips .md-chips input {
+    display: none; }
+  md-chips.gi-chips .md-chips .md-focused {
+    box-shadow: none;
+    background-color: #e0e0e0;
+    color: #424242; }
+    md-chips.gi-chips .md-chips .md-focused md-icon {
+      color: rgba(0, 0, 0, 0.54); }
+  md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip {
+    border-radius: 0;
+    clear: left;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-top: solid 1px black;
+    border-left: solid 1px black;
+    border-right: solid 1px black; }
+    md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip .md-focused {
+      box-shadow: none;
+      background-color: #e0e0e0;
+      color: #424242; }
+    md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip .md-chip-content, md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip md-chip-template {
+      width: 100%;
+      display: -webkit-flex;
+      display: flex; }
+    md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip .chip-val {
+      border-right: solid 1px darkblue;
+      display: inline-block;
+      width: auto;
+      flex: 1; }
+    md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip .chip-val:after {
+      content: '.';
+      visibility: hidden; }
+    md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip .md-chip-remove-container {
+      position: absolute;
+      right: 0;
+      display: block;
+      z-index: 1; }
+      md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip .md-chip-remove-container .md-chip-remove {
+        cursor: pointer; }
+        md-chips.gi-chips .md-chips md-chip.ng-scope.md-chip .md-chip-remove-container .md-chip-remove md-icon {
+          cursor: pointer; }
+  md-chips.gi-chips .md-chips md-chip:nth-child(even) {
+    background-color: transparent; }
+  md-chips.gi-chips .md-chips md-chip:last-of-type {
+    border-bottom: solid 1px black; }
+
+/*# sourceMappingURL=gridInput.css.map */
