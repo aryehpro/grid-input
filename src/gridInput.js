@@ -18,13 +18,13 @@ angular.module('gridInput')
                     var newChip = {};
 
                     for (var i = 0; i < $scope.fields.length; i++) {
-                        newChip[$scope.fields[i]] = $scope.newChip[$scope.fields[i]];
+                        newChip[$scope.fields[i].name] = $scope.newChip[$scope.fields[i].name];
                     }
 
                     $scope.values.push(newChip);
 
                     for (i = 0; i < $scope.fields.length; i++) {
-                        $scope.newChip[$scope.fields[i]] = '';
+                        $scope.newChip[$scope.fields[i].name] = '';
                     }
                 };
 
@@ -33,7 +33,7 @@ angular.module('gridInput')
                     $scope.newChip = {};
 
                     for (var i = 0; i < $scope.fields.length; i++) {
-                        $scope.newChip[$scope.fields[i]] = '';
+                        $scope.newChip[$scope.fields[i].name] = '';
                     }
                     
                     if (!$scope.values || $scope.values.length === 0) {
@@ -42,7 +42,7 @@ angular.module('gridInput')
                         var newChipCopy = {};
 
                         for (i = 0; i < $scope.fields.length; i++) {
-                            newChipCopy[$scope.fields[i]] = $scope.newChip[$scope.fields[i]];
+                            newChipCopy[$scope.fields[i].name] = $scope.newChip[$scope.fields[i].name];
                         }
 
                         $scope.values.push(newChipCopy);

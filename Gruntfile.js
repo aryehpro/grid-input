@@ -38,6 +38,9 @@ module.exports = function(grunt) {
         },
 
         html2js: {
+            options: {
+                module: 'grid-input-templates'
+            },
             dist: {
                 src: [ 'src/*.html' ],
                 dest: 'tmp/templates.js'
@@ -46,9 +49,9 @@ module.exports = function(grunt) {
 
         concat: {
             options: {
-                separator: ';\n',
-                banner: 'angular.module(\'gridInput\', [\'templates-dist\',' +
-                ' \'ngMaterial\']);'
+                separator: '\r\n',
+                banner: 'angular.module(\'gridInput\',' +
+                ' [\'grid-input-templates\', \'ngMaterial\']);\r\n'
             },
             dist: {
                 src: [ 'src/*.js', 'tmp/*.js' ],

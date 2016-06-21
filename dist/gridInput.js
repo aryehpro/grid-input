@@ -1,4 +1,5 @@
-angular.module('gridInput', ['templates-dist', 'ngMaterial']);/**
+angular.module('gridInput', ['grid-input-templates', 'ngMaterial']);
+/**
  * Created by Aryeh on 14/06/2016.
  */
 
@@ -18,13 +19,13 @@ angular.module('gridInput')
                     var newChip = {};
 
                     for (var i = 0; i < $scope.fields.length; i++) {
-                        newChip[$scope.fields[i]] = $scope.newChip[$scope.fields[i]];
+                        newChip[$scope.fields[i].name] = $scope.newChip[$scope.fields[i].name];
                     }
 
                     $scope.values.push(newChip);
 
                     for (i = 0; i < $scope.fields.length; i++) {
-                        $scope.newChip[$scope.fields[i]] = '';
+                        $scope.newChip[$scope.fields[i].name] = '';
                     }
                 };
 
@@ -33,7 +34,7 @@ angular.module('gridInput')
                     $scope.newChip = {};
 
                     for (var i = 0; i < $scope.fields.length; i++) {
-                        $scope.newChip[$scope.fields[i]] = '';
+                        $scope.newChip[$scope.fields[i].name] = '';
                     }
                     
                     if (!$scope.values || $scope.values.length === 0) {
@@ -42,7 +43,7 @@ angular.module('gridInput')
                         var newChipCopy = {};
 
                         for (i = 0; i < $scope.fields.length; i++) {
-                            newChipCopy[$scope.fields[i]] = $scope.newChip[$scope.fields[i]];
+                            newChipCopy[$scope.fields[i].name] = $scope.newChip[$scope.fields[i].name];
                         }
 
                         $scope.values.push(newChipCopy);
@@ -58,8 +59,8 @@ angular.module('gridInput')
             return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
         };
     });
-;
-angular.module('templates-dist', ['gridInput.html']);
+
+angular.module('grid-input-templates', ['gridInput.html']);
 
 angular.module("gridInput.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("gridInput.html",
@@ -67,8 +68,9 @@ angular.module("gridInput.html", []).run(["$templateCache", function($templateCa
     "    <form class=\"gi-form\" name=\"userForm\">\n" +
     "        <div>\n" +
     "            <md-input-container class=\"md-block\" ng-repeat=\"field in fields\">\n" +
-    "                <label>{{field | capitalize}}</label>\n" +
-    "                <input ng-model=\"newChip[field]\" ng-keyup=\"$last && $event.keyCode == 13 && addNewChip()\">\n" +
+    "                <label>{{field.label | capitalize}}</label>\n" +
+    "                <input ng-model=\"newChip[field.name]\"\n" +
+    "                       ng-keyup=\"$last && $event.keyCode == 13 && addNewChip()\">\n" +
     "            </md-input-container>\n" +
     "        </div>\n" +
     "    </form>\n" +
