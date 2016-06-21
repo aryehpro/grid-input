@@ -11,7 +11,8 @@ angular.module('gridInput')
             replace: true,
             scope: {
                 fields: '=',
-                values: '=?'
+                values: '=?',
+                capitalization: '@'
             },
             controller: ['$scope', function ($scope) {
 
@@ -31,12 +32,14 @@ angular.module('gridInput')
 
                 function init() {
 
+                    $scope.capitalization = angular.isDefined($scope.capitalization) ? $scope.capitalization : 'none';
+
                     $scope.newChip = {};
 
                     for (var i = 0; i < $scope.fields.length; i++) {
                         $scope.newChip[$scope.fields[i].name] = '';
                     }
-                    
+
                     if (!$scope.values || $scope.values.length === 0) {
                         $scope.values = [];
 
@@ -49,14 +52,34 @@ angular.module('gridInput')
                         $scope.values.push(newChipCopy);
                     }
                 }
-                
+
                 init();
             }]
         };
     }])
     .filter('capitalize', function () {
-        return function (input) {
-            return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+        return function (input, capitalization) {
+
+            switch (capitalization) {
+                case 'sentence':
+                    return (!!input) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : '';
+
+                case 'everyWord':
+                    if (!input) {
+                        return '';
+                    }
+
+                    var words = input.split(' ');
+
+                    for (var i = 0; i < words.length; i++) {
+                        words[i] = words[i].charAt(0).toUpperCase() + words[i].substr(1).toLowerCase();
+                    }
+
+                    return words.join(' ');
+                
+                case 'none':
+                    return input;
+            }
         };
     });
 
@@ -68,7 +91,7 @@ angular.module("gridInput.html", []).run(["$templateCache", function($templateCa
     "    <form class=\"gi-form\" name=\"userForm\">\n" +
     "        <div>\n" +
     "            <md-input-container class=\"md-block\" ng-repeat=\"field in fields\">\n" +
-    "                <label>{{field.label | capitalize}}</label>\n" +
+    "                <label>{{field.label | capitalize:capitalization}}</label>\n" +
     "                <input ng-model=\"newChip[field.name]\"\n" +
     "                       ng-keyup=\"$last && $event.keyCode == 13 && addNewChip()\">\n" +
     "            </md-input-container>\n" +

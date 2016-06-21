@@ -2,7 +2,7 @@
     <form class="gi-form" name="userForm">
         <div>
             <md-input-container class="md-block" ng-repeat="field in fields">
-                <label>{{field.label | capitalize}}</label>
+                <label>{{field.label | capitalize:capitalization}}</label>
                 <input ng-model="newChip[field.name]"
                        ng-keyup="$last && $event.keyCode == 13 && addNewChip()">
             </md-input-container>
